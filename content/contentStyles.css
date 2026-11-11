@@ -1,0 +1,232 @@
+.airbxb-btn-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  z-index: 100;
+}
+
+.airbxb-shortlist-btn {
+  display: inline-flex;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(0, 0, 0, 0.55);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  cursor: pointer;
+  outline: none;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  z-index: 101;
+  pointer-events: auto;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.airbxb-shortlist-btn:hover {
+  background: rgba(0, 0, 0, 0.70);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+}
+
+.airbxb-shortlist-btn svg {
+  width: 13px;
+  height: 13px;
+  display: block;
+  stroke: white;
+}
+
+.airbxb-dislike-btn {
+  display: inline-flex;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(0, 0, 0, 0.55);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  cursor: pointer;
+  outline: none;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  z-index: 101;
+  pointer-events: auto;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.airbxb-dislike-btn:hover {
+  background: rgba(0, 0, 0, 0.70);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+}
+
+.airbxb-dislike-btn svg {
+  width: 13px;
+  height: 13px;
+  display: block;
+  stroke: white;
+}
+
+.airbxb-dislike-btn.airbxb-active {
+  background: rgba(0, 0, 0, 0.72);
+}
+
+.airbxb-compact-btn {
+  position: absolute !important;
+  z-index: 102 !important;
+}
+
+.airbxb-shortlist-btn.airbxb-compact-btn {
+  top: 30px !important;
+  right: 4px !important;
+}
+
+.airbxb-dislike-btn.airbxb-compact-btn {
+  top: 56px !important;
+  right: 4px !important;
+}
+
+.airbxb-map-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+  border: none !important;
+  background: rgb(255, 255, 255) !important;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px !important;
+  cursor: pointer !important;
+  outline: none !important;
+  transition: box-shadow 0.2s ease !important;
+  position: relative !important;
+  z-index: 101 !important;
+  pointer-events: auto !important;
+  margin: 0 !important;
+  margin-right: 8px !important;
+  padding: 0 !important;
+  color: rgb(34, 34, 34) !important;
+  flex-shrink: 0 !important;
+  transform: translateZ(0) !important;
+  backface-visibility: hidden !important;
+}
+
+.airbxb-map-btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 6px 20px !important;
+}
+
+.airbxb-map-btn svg {
+  display: block !important;
+  stroke: currentColor !important;
+  fill: none !important;
+}
+
+.airbxb-map-btn.airbxb-dislike-btn.airbxb-active {
+  background: rgb(240, 240, 240) !important;
+  color: rgb(113, 113, 113) !important;
+}
+
+.airbxb-card-grey {
+  filter: grayscale(1) saturate(0) contrast(0.9);
+  opacity: 0.38;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+}
+
+.airbxb-card-grey-map {
+  filter: grayscale(1) saturate(0) contrast(0.95);
+  opacity: 0.9;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+}
+
+.airbxb-card-hide {
+  display: none !important;
+}
+
+.airbxb-similar-hide {
+  display: none !important;
+}
+
+.airbxb-split-stays-hide {
+  display: none !important;
+}
+
+.airbxb-card-shortlisted {
+  box-shadow: 
+    0 0 0 2px rgba(255, 140, 0, 0.8),
+    0 0 8px 2px rgba(255, 140, 0, 0.6),
+    0 0 16px 4px rgba(255, 140, 0, 0.4),
+    0 0 24px 6px rgba(255, 140, 0, 0.2),
+    0 0 32px 8px rgba(255, 140, 0, 0.1) !important;
+  border-radius: 12px;
+  transition: box-shadow 0.3s ease;
+}
+
+.airbxb-card-rel { 
+  position: relative !important; 
+}
+
+.airbxb-slot {
+  position: absolute;
+  top: 48px;
+  right: 8px;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  pointer-events: none;
+}
+
+.airbxb-slot .airbxb-dislike-btn,
+.airbxb-slot .airbxb-shortlist-btn { 
+  pointer-events: auto; 
+}
+
+.airbxb-listing-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: background-color 0.2s ease;
+  color: #222;
+}
+
+.airbxb-listing-btn:hover {
+  background-color: #f7f7f7;
+}
+
+.airbxb-listing-btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.airbxb-listing-btn.shortlist-active {
+  color: #ff385c;
+}
+
+.airbxb-listing-btn.hide-active {
+  color: #6b7280;
+}
+
+.airbxb-listing-hide {
+  margin-right: 0px;
+}
+
+.airbxb-listing-shortlist {
+  margin-right: 10px;
+}
+
+[data-section-id="HERO_DEFAULT"].airbxb-hero-greyed {
+  filter: grayscale(1) saturate(0) contrast(0.85);
+  opacity: 0.5;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}

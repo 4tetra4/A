@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirbXb Settings</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>AirbXb</h1>
+            <p>The Ultimate Airbnb Toolkit</p>
+        </div>
+
+        <div class="card">
+            <div class="setting-item">
+                <label for="isEnabled">Enable Filtering</label>
+                <label class="switch">
+                    <input type="checkbox" id="isEnabled">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <div class="setting-item">
+                <label>Handle disliked listings</label>
+                <div class="custom-select-wrapper">
+                    <div class="custom-select" id="filterModeSelect">
+                        <span class="custom-select-value">Hide Them</span>
+                        <svg class="custom-select-arrow" width="12" height="12" viewBox="0 0 12 12">
+                            <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="custom-select-dropdown" id="filterModeDropdown">
+                        <div class="custom-select-option" data-value="hide">Hide Them</div>
+                        <div class="custom-select-option" data-value="greyout">Grey Them Out</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="setting-item">
+                <label for="hideSimilarBlocks">Hide similar price/date blocks</label>
+                <label class="switch">
+                    <input type="checkbox" id="hideSimilarBlocks">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <div class="setting-item">
+                <label for="hideSplitStays">Hide split stays</label>
+                <label class="switch">
+                    <input type="checkbox" id="hideSplitStays">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <div class="setting-item" title="Removes Airbnb's resolution limit, this is relevant for certain displays only">
+                <label for="hiResImages">Hi-Res</label>
+                <label class="switch">
+                    <input type="checkbox" id="hiResImages">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <div class="setting-item">
+                <label>Shortlist glow color</label>
+                <div class="custom-color-wrapper">
+                    <div class="custom-color-trigger" id="colorTrigger">
+                        <div class="custom-color-preview" id="colorPreview"></div>
+                    </div>
+                    <div class="custom-color-picker" id="colorPicker">
+                        <div class="color-option" data-color="#FF8C00" style="background: #FF8C00;" title="Orange"></div>
+                        <div class="color-option" data-color="#FFFFFF" style="background: #FFFFFF;" title="White"></div>
+                        <div class="color-option" data-color="#FF0000" style="background: #FF0000;" title="Red"></div>
+                        <div class="color-option" data-color="#9B59B6" style="background: #9B59B6;" title="Purple"></div>
+                        <div class="color-option" data-color="#3498DB" style="background: #3498DB;" title="Blue"></div>
+                        <div class="color-option" data-color="#2B9348" style="background: #2B9348;" title="Green"></div>
+                        <div class="color-option" data-color="#F5C857" style="background: #F5C857;" title="Yellow"></div>
+                        <div class="color-option" data-color="#8C2F39" style="background: #8C2F39;" title="Burgundy"></div>
+                        <div class="color-option" data-color="#1ABC9C" style="background: #1ABC9C;" title="Turquoise"></div>
+                        <div class="color-option" data-color="#34495E" style="background: #34495E;" title="Dark Gray"></div>
+                        <div class="color-option" data-color="#AAAAAA" style="background: #AAAAAA;" title="Light Gray"></div>
+                        <div class="color-option" data-color="#9C7E66" style="background: #9C7E66;" title="Taupe"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="setting-item stats">
+                <span class="shortlist-label-btn" id="shortlistLabel">Shortlisted listings</span>
+                <strong id="shortlistedCount">0</strong>
+                <button id="clearShortlistBtn" class="clear-btn clear-btn-shortlist" title="Clear shortlist">Clear</button>
+            </div>
+
+            <div class="setting-item stats">
+                <span>Blocked listings</span>
+                <strong id="blockedCount">0</strong>
+                <button id="clearBtn" class="clear-btn" title="Clear blocked">Clear</button>
+            </div>
+
+            <div class="setting-item stats">
+                <span>Data Management</span>
+                <span></span> 
+                <button id="openDataModalBtn" class="clear-btn">Export / Import</button>
+            </div>
+        </div>
+
+        <div class="card card-button" id="amenityFilterCard">
+            <div class="card-button-content">
+                <span class="card-button-title">
+                    <svg class="card-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="10" cy="10" r="7"></circle>
+                        <path d="m21 21-6.05-6.05"></path>
+                    </svg>
+                    Advanced Amenity Filter
+                </span>
+                <svg class="card-button-arrow" width="16" height="16" viewBox="0 0 16 16">
+                    <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="2" fill="none"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="card card-pay">
+            <p>Made with ❤️ and lots of coffee. Like to refill my cup?</p>
+            <button class="coffee-button" id="coffeeButton">
+                <svg class="coffee-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 8h1a4 4 0 0 1 0 8h-1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="6" y1="1" x2="6" y2="4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="10" y1="1" x2="10" y2="4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="14" y1="1" x2="14" y2="4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Buy me a Coffee
+            </button>
+            <div class="currency-buttons" id="currencyButtons">
+                <a href="#" class="currency-btn" id="usdBtn" data-url="https://donate.stripe.com/eVqbJ3d6W1j43nO6HnejK01">$</a>
+                <a href="#" class="currency-btn" id="gbpBtn" data-url="https://donate.stripe.com/00wdRb2si1j42jK3vbejK00">£</a>
+                <a href="#" class="currency-btn" id="eurBtn" data-url="https://donate.stripe.com/28E28tgj84vge2s1n3ejK02">€</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="amenityModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Advanced Amenity Filter</h2>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="search-box">
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                         <circle cx="10" cy="10" r="7"></circle>
+                        <path d="m21 21-6.05-6.05"></path>
+                    </svg>
+                    <input type="text" id="amenitySearch" placeholder="Search amenities..." />
+                </div>
+                <div class="amenity-list" id="amenityList">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn modal-btn-secondary" id="clearAmenities">Clear All</button>
+                <button class="modal-btn modal-btn-primary" id="applyAmenities">Apply Filters</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="dataModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Export / Import Data</h2>
+                <button class="modal-close" id="closeDataModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="data-section">
+                    <h3>Export</h3>
+                    <p class="data-desc">Download all your blocked listings, shortlist, and details as a CSV file.</p>
+                    <button class="modal-btn modal-btn-primary" id="exportDataBtn" style="width: 100%;">Export to CSV</button>
+                </div>
+                
+                <div class="data-section-divider"></div>
+                
+                <div class="data-section">
+                    <h3>Import</h3>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="importFile" accept=".csv" />
+                    </div>
+                    
+                    <div class="import-options">
+                        <div class="checkbox-group">
+                            <label class="import-checkbox-item">
+                                <input type="checkbox" id="importBlocked">
+                                <span class="import-label-text">Import Blocked Properties</span>
+                            </label>
+                            <label class="import-checkbox-item">
+                                <input type="checkbox" id="importShortlist">
+                                <span class="import-label-text">Import Shortlisted Properties</span>
+                            </label>
+                            <label class="import-checkbox-item">
+                                <input type="checkbox" id="importEverything">
+                                <span class="import-label-text">Import Everything (Details, Notes, Trips)</span>
+                            </label>
+                        </div>
+                        
+                        <div class="radio-group">
+                            <label style="margin-bottom: 8px; display:block;">Method:</label>
+                            <label class="import-radio-item">
+                                <input type="radio" name="importMethod" value="replace" checked>
+                                <span class="import-label-text">Replace all current data</span>
+                            </label>
+                            <label class="import-radio-item">
+                                <input type="radio" name="importMethod" value="merge">
+                                <span class="import-label-text">Add to existing data</span>
+                            </label>
+                        </div>
+                        
+                        <div class="warning-box" id="mergeWarning" style="display: none;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                                <line x1="12" y1="9" x2="12" y2="13"></line>
+                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                            </svg>
+                            Merging may create duplicates or overwrite specific property details.
+                        </div>
+
+                         <div class="warning-box" id="replaceWarning">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                                <line x1="12" y1="9" x2="12" y2="13"></line>
+                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                            </svg>
+                            This will delete all your current data before importing.
+                        </div>
+                    </div>
+                    
+                    <button class="modal-btn modal-btn-secondary" id="importDataBtn" style="width: 100%; margin-top: 12px;" disabled>Import Data</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal-overlay" id="confirmationModal">
+        <div class="modal-content" style="width: 400px;">
+            <div class="modal-header">
+                <h2>Confirm Action</h2>
+                <button class="modal-close" id="closeConfirmationModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="confirmationMessage" style="font-size: 14px; color: #374151; margin: 0;">Are you sure?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn modal-btn-secondary" id="cancelConfirmationBtn">No</button>
+                <button class="modal-btn modal-btn-primary" id="confirmActionBtn">Yes, Clear</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert Modal -->
+    <div class="modal-overlay" id="alertModal">
+        <div class="modal-content" style="width: 400px;">
+            <div class="modal-header">
+                <h2 id="alertTitle">Status</h2>
+                <button class="modal-close" id="closeAlertModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="alertMessage" style="font-size: 14px; color: #374151; margin: 0;"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn modal-btn-primary" id="closeAlertBtn">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
